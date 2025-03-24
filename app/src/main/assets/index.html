@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="height=device-height, initial-scale=1.0">
+        <title>now_time</title>
+        <style>
+            body{
+                /*height: 70vh;*/
+                background-color: blue;
+                padding-top: 25vh;
+                padding-bottom: 25vh;
+            }
+            .block{
+                width: 100%;
+                /*height: 70vh;*/
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .text1{
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+                font-size: 13vw;
+                font-family: MS ゴシック;
+                text-align: center;
+            }
+            .text2{
+                color: rgb(255, 255, 255);
+                font-weight: bold;
+                text-align: center;
+                font-size: 5vw;
+                font-family: MS ゴシック;
+            }
+        </style>
+        <script>
+            function now_time(){
+                let now = new Date();
+                var year = now.getFullYear();
+                var month = now.getMonth();
+                var date = now.getDate();
+                var hour = now.getHours();
+                var miniute = now.getMinutes();
+                var second = now.getSeconds();
+                var week = now.getDay();
+                const weeks = ["日","月","火","水","木","金","土"];
+
+                if(hour<10){
+                    hour = "0" + hour;
+                }
+                if(miniute<10){
+                    miniute = "0" + miniute;
+                }
+                if(second<10){
+                    second = "0" + second;
+                }
+
+            
+                if(month<10){
+                    month = "0" + month;
+                }
+                if(date<10){
+                    date = "0" + date;
+                }
+                
+
+                document.getElementById("text1").innerText=hour+"時"+miniute+"分"+second+"秒";
+                document.getElementById("text2").innerText=year+"/"+month+"/"+date+"("+weeks[week]+")";
+
+            }
+            setInterval(now_time,500);
+        </script>
+    </head>
+    <body>
+        <div class="block">
+            <div id="text1" class="text1">
+                読み込み中
+            </div>
+            <br>
+        </div>
+        <div id="text2" class="text2">
+            LOADING
+        </div> 
+
+        
+
+          
+    </body>
+</html>
